@@ -11,9 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "minecraft-data": "^2.79.0",
+    "minecraft-data": "*",
     "mineflayer": "*",
-    "mineflayer-pathfinder": "^1.6.1",
-    "prismarine-viewer": "^1.15.0"
+    "mineflayer-pathfinder": "*",
+    "prismarine-viewer": "*"
   }
 }

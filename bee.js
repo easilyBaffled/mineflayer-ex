@@ -1,6 +1,6 @@
 const mineflayer = require('mineflayer')
 const mineflayerViewer = require('prismarine-viewer').mineflayer
-
+console.log('test')
 if (process.argv.length < 4 || process.argv.length > 6) {
     console.log('Usage : node bee.js <host> <port> [<name>] [<password>]', process.argv)
     process.exit(1)

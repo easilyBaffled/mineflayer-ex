@@ -1,5 +1,5 @@
 // This is an example that uses mineflayer-pathfinder to showcase how simple it is to walk to goals
-
+console.log('test')
 const mineflayer = require('mineflayer')
 const { pathfinder, Movements, goals: { GoalNear } } = require('mineflayer-pathfinder')
 const mineflayerViewer = require('prismarine-viewer').mineflayer
