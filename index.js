@@ -1,24 +1,27 @@
 const mineflayer = require('mineflayer')
 const mineflayerViewer = require('prismarine-viewer').mineflayer
-console.log('test')
-const bot = mineflayer.createBot({
-  host: '185.228.139.97',
-  port: 25564,
-  username: 'lookAt_Bot'
-})
+const { startBot } = require('./setupStandardBot');
+const { addComeHere } = require('./come-here');
+const { startChat } = require('./cliChatSetup');
+const chalk = require('chalk');
 
-function lookAtNearestPlayer () {
-  const playerFilter = (entity) => entity.type === 'player'
-  const playerEntity = bot.nearestEntity(playerFilter)
+function addLookAt(bot) {
+    function lookAtNearestPlayer () {
+        const playerFilter = (entity) => entity.type === 'player'
+        const playerEntity = bot.nearestEntity(playerFilter)
 
-  if (!playerEntity) return
+        if (!playerEntity) return
 
-  const pos = playerEntity.position.offset(0, playerEntity.height, 0)
-  bot.lookAt(pos)
+        const pos = playerEntity.position.offset(0, playerEntity.height, 0)
+        bot.lookAt(pos)
+    }
+
+    bot.on('physicTick', lookAtNearestPlayer)
+    return bot
 }
 
-bot.on('physicTick', lookAtNearestPlayer)
-
-bot.once('spawn', () => {
-    mineflayerViewer(bot, { port: 3007, firstPerson: true })
-})
+startBot()
+    .then( addLookAt )
+    .then( addComeHere )
+    .then( startChat )
+    .catch( e => console.error(chalk.red(e), e) )
