@@ -13,7 +13,7 @@ const startChat = (bot) => {
     rl.on('line', (line) => {
         try {
             console.log('Double Checking:', line)
-            // bot.chat(line);
+            bot.chat(line);
         }catch (e) {
             console.log('Something Went Ary')
             console.error(e)
