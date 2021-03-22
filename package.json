@@ -2,12 +2,9 @@
   "name": "lookat-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "engines": {
-		"node": ">=14"
-	},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+	"start:replit": "npx node@15 index.js",
     "start:bot": "node index.js",
     "start:server": "java -jar ./server/server.jar --port 25565"
   },
